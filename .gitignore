@@ -4,4 +4,6 @@
 /public/bundles/
 /var/
 /vendor/
+/.idea/
+/docker-symfony4.iml
 ###< symfony/framework-bundle ###
