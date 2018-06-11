@@ -2,7 +2,7 @@ dist: trusty
 sudo: required
 language: php
 php:
-  - '7.1.10'
+  - '7.1.0'
 
 branches:
   only:
