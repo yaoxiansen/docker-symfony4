@@ -2,7 +2,7 @@ dist: trusty
 sudo: required
 language: php
 php:
-  - '7.0.0'
+  - '7.1.10'
 
 branches:
   only:
@@ -10,5 +10,5 @@ branches:
 
 script:
   - composer install
-  - composer config repositories.kkrieger85 vcs https://github.com/kkrieger85/Bannerslider-Magento2
-  - composer require magestore/module-bannerslider:dev-maste
+  - composer config repositories.kkrieger85 vcs https://github.com/JeroenVanLeusden/Bannerslider-Magento2
+  - composer require magestore/module-bannerslider:dev-patch-1
