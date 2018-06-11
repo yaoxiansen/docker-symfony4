@@ -10,3 +10,4 @@ branches:
 
 script:
   - composer install
+  - composer update
