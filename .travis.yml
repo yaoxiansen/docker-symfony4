@@ -10,5 +10,5 @@ branches:
 
 script:
   - composer install
-  #- composer config repositories.kkrieger85 vcs https://github.com/JeroenVanLeusden/Bannerslider-Magento2.git
+  - composer config repositories.banner vcs https://github.com/JeroenVanLeusden/Bannerslider-Magento2.git
   - composer require magestore/module-bannerslider:dev-patch-1
