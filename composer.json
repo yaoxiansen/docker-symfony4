@@ -10,7 +10,8 @@
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
         "symfony/twig-bundle": "^4.0",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+        "Magestore/Bannerslider-Magento2": "dev-master"
     },
     "require-dev": {
         "symfony/dotenv": "^4.0",
@@ -52,6 +53,12 @@
     },
     "conflict": {
         "symfony/symfony": "*"
+    },
+    "repositories": {
+        "kkrieger85": {
+            "type": "vcs",
+            "url": "https://github.com/kkrieger85/Bannerslider-Magento2"
+        }
     },
     "extra": {
         "symfony": {
