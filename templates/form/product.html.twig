@@ -5,6 +5,13 @@
 
     <hr />
 
-    {{ form(productForm) }}
+    {{ dump(productForm) }}
+
+    {{ form_start(productForm) }}
+    {% for row in productForm.children %}
+        {{ form_row(row) }}
+    {% endfor %}
+    {{ form_end(productForm) }}
+    {#{{ form(productForm) }}#}
 
 {% endblock %}
