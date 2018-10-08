@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FormExampleController extends Controller
 {
 	/**
-     * @Route("/create", name="form_create_example")
+     * @Route("/product/create", name="form_create_example")
      */
     public function formCreateExampleAction(Request $request)
     {
@@ -61,5 +61,16 @@ class FormExampleController extends Controller
         return $this->render('/form/product_create.html.twig', [
             'productForm' => $form->createView()
         ]);
+    }
+	
+	/**
+     * @Route("/product/delete/{product}", name="form_delete_example",requirements={"id"="\d+"})
+     */
+    public function formDeleteExampleAction(Request $request, Product $product)
+    {
+        $em = $this->getDoctrine()->getManager();
+		$em->remove($product);
+		$em->flush();
+		return $this->redirectToRoute('form_read_example');
     }
 }
