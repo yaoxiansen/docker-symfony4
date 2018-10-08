@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h2>Symfony 4 Form Example</h2>
+
+    <hr />
+	
+	{% for product in products %}
+		<div>
+			<a href="/product/{{product.id}}">{{product.title}}</a>
+		</div>
+		<br/>
+	{% %}
+
+{% endblock %}

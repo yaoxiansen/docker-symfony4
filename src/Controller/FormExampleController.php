@@ -22,7 +22,7 @@ class FormExampleController extends Controller
             $em->flush();
             return $this->redirectToRoute('form_example');
         }
-        return $this->render('/form/product.html.twig', [
+        return $this->render('/form/product_create.html.twig', [
             'productForm' => $form->createView()
         ]);
     }
@@ -33,9 +33,18 @@ class FormExampleController extends Controller
     public function formReadExampleAction(Request $request)
     {
 		$repository = $this->getDoctrine()->getRepository(Product::class);
-		$products = $repository->findAll();
-		var_dump($products);
-		return new JsonResponse(['data' => $products]);
+		$items = $repository->findAll();
+		$products = array();
+		if(isset($items)){
+			foreach($items as $item){
+				$products[] = [
+					'id' => $item->getId(),
+					'title' => $item->getTitle(),
+					'description' => $item->getDescription()
+				]
+			}
+		}
+		return $this->render('/product/product_read.html.twig', ['products' => $products]);
     }
     /**
      * @Route("/{product}", name="form_edit_example",requirements={"id"="\d+"})
