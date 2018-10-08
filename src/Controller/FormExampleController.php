@@ -34,6 +34,7 @@ class FormExampleController extends Controller
     {
 		$repository = $this->getDoctrine()->getRepository(Product::class);
 		$products = $repository->findAll();
+		var_dump($products);
 		return new JsonResponse(['data' => $products]);
     }
     /**
