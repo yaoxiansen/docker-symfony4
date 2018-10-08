@@ -20,7 +20,7 @@ class FormExampleController extends Controller
             $product = $form->getData();
             $em->persist($product);
             $em->flush();
-            return $this->redirectToRoute('form_example');
+            return $this->redirectToRoute('form_read_example');
         }
         return $this->render('/form/product_create.html.twig', [
             'productForm' => $form->createView()
@@ -47,7 +47,7 @@ class FormExampleController extends Controller
 		return $this->render('/form/product_read.html.twig', ['products' => $products]);
     }
     /**
-     * @Route("/{product}", name="form_edit_example",requirements={"id"="\d+"})
+     * @Route("/product/{product}", name="form_edit_example",requirements={"id"="\d+"})
      */
     public function formEditExampleAction(Request $request, Product $product)
     {
@@ -56,9 +56,9 @@ class FormExampleController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
-            return $this->redirectToRoute('form_edit_example', ['product'=>$product->getId()]);
+            return $this->redirectToRoute('form_read_example');
         }
-        return $this->render('/form/product.html.twig', [
+        return $this->render('/form/product_create.html.twig', [
             'productForm' => $form->createView()
         ]);
     }
