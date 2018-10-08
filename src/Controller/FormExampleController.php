@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FormExampleController extends Controller
 {
 	/**
-     * @Route("/create name="form_create_example")
+     * @Route("/create" name="form_create_example")
      */
     public function formCreateExampleAction(Request $request)
     {
