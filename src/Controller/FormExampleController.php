@@ -41,7 +41,7 @@ class FormExampleController extends Controller
 					'id' => $item->getId(),
 					'title' => $item->getTitle(),
 					'description' => $item->getDescription()
-				]
+				];
 			}
 		}
 		return $this->render('/product/product_read.html.twig', ['products' => $products]);
