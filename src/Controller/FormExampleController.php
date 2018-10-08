@@ -7,8 +7,27 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FormExampleController extends Controller
 {
+	/**
+     * @Route("/create", name="form_example")
+     */
+    public function formExampleAction(Request $request)
+    {
+        $form = $this->createForm(ProductType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $product = $form->getData();
+            $em->persist($product);
+            $em->flush();
+            return $this->redirectToRoute('form_example');
+        }
+        return $this->render('/form/product.html.twig', [
+            'productForm' => $form->createView()
+        ]);
+    }
+	
     /**
-     * @Route("/", name="form_example")
+     * @Route("/list", name="form_example")
      */
     public function formExampleAction(Request $request)
     {
@@ -26,7 +45,7 @@ class FormExampleController extends Controller
         ]);
     }
     /**
-     * @Route("/{product}", name="form_edit_example")
+     * @Route("/{product}", name="form_edit_example",requirements={"id"="\d+"})
      */
     public function formEditExampleAction(Request $request, Product $product)
     {
