@@ -8,9 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FormExampleController extends Controller
 {
 	/**
-     * @Route("/create", name="form_example")
+     * @Route("/create name="form_create_example")
      */
-    public function formExampleAction(Request $request)
+    public function formCreateExampleAction(Request $request)
     {
         $form = $this->createForm(ProductType::class);
         $form->handleRequest($request);
