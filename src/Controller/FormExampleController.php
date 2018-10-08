@@ -44,7 +44,7 @@ class FormExampleController extends Controller
 				];
 			}
 		}
-		return $this->render('/product/product_read.html.twig', ['products' => $products]);
+		return $this->render('/form/product_read.html.twig', ['products' => $products]);
     }
     /**
      * @Route("/{product}", name="form_edit_example",requirements={"id"="\d+"})
