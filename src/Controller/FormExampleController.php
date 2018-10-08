@@ -33,7 +33,7 @@ class FormExampleController extends Controller
     {
 		$repository = $this->getDoctrine()->getRepository(Product::class);
 		$products = $repository->findAll();
-		return ['data' => $products];
+		return new JsonResponse(['data' => $products]);
     }
     /**
      * @Route("/{product}", name="form_edit_example",requirements={"id"="\d+"})
