@@ -4,6 +4,7 @@ use App\Entity\Product;
 use App\Form\Type\ProductType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FormExampleController extends Controller
 {
