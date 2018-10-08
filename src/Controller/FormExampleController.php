@@ -27,22 +27,13 @@ class FormExampleController extends Controller
     }
 	
     /**
-     * @Route("/list", name="form_example")
+     * @Route("/product/list", name="form_read_example")
      */
-    public function formExampleAction(Request $request)
+    public function formReadExampleAction(Request $request)
     {
-        $form = $this->createForm(ProductType::class);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $product = $form->getData();
-            $em->persist($product);
-            $em->flush();
-            return $this->redirectToRoute('form_example');
-        }
-        return $this->render('/form/product.html.twig', [
-            'productForm' => $form->createView()
-        ]);
+		$repository = $this->getDoctrine()->getRepository(Product::class);
+		$products = $repository->findAll();
+		return ['data' => $products];
     }
     /**
      * @Route("/{product}", name="form_edit_example",requirements={"id"="\d+"})
